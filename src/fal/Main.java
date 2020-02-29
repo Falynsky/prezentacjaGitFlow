@@ -23,18 +23,20 @@ public class Main {
                 )
         );
 
+        Employee mainManager = new Employee("Lucyfer", "Morning-Star", 666, contracts,null);
 
-        List<Employee> employees = createEmployees(names, surenames, ages, contracts);
+
+        List<Employee> employees = createEmployees(names, surenames, ages, contracts, mainManager);
 
         employees.forEach(t -> System.out.println(t.toString()));
     }
 
-    private static List<Employee> createEmployees(List<String> names, List<String> surenames, List<String> ages, List<Contract> contracts) throws Exception {
+    private static List<Employee> createEmployees(List<String> names, List<String> surenames, List<String> ages, List<Contract> contracts, Employee manager) throws Exception {
         int employeesSize = isListsSizeEquals(names, surenames, ages, contracts);
         List<Employee> employees = new ArrayList<>();
 
         for (int i = 0; i < employeesSize; i++) {
-            employees.add(createEmployee(names, surenames, ages, contracts, i));
+            employees.add(createEmployee(names, surenames, ages, contracts, manager,i));
         }
 
         return employees;
@@ -51,7 +53,7 @@ public class Main {
         return namesSize;
     }
 
-    private static Employee createEmployee(List<String> names, List<String> surenames, List<String> ages, List<Contract> contracts, int index) {
-        return new Employee(names.get(index), surenames.get(index), Integer.parseInt(ages.get(index)), Collections.singletonList(contracts.get(index)));
+    private static Employee createEmployee(List<String> names, List<String> surenames, List<String> ages, List<Contract> contracts, Employee manager, int index) {
+        return new Employee(names.get(index), surenames.get(index), Integer.parseInt(ages.get(index)), Collections.singletonList(contracts.get(index)), manager);
     }
 }
