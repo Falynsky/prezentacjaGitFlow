@@ -3,7 +3,6 @@ package fal.employee;
 import fal.contract.Contract;
 
 import java.util.List;
-import java.util.Objects;
 
 public class Employee {
 
@@ -11,12 +10,33 @@ public class Employee {
     private String surename;
     private int age;
     private List<Contract> contracts;
+    private Employee manager;
 
-    public Employee(String name, String surename, int age, List<Contract> contracts) {
+    public Employee(String name, String surename, int age, List<Contract> contracts, Employee manager) {
         this.name = name;
         this.surename = surename;
         this.age = age;
         this.contracts = contracts;
+        this.manager = manager;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", surename='" + surename + '\'' +
+                ", age=" + age +
+                ", contracts=" + contracts +
+                ", manager=" + manager +
+                '}';
+    }
+
+    public Employee getManager() {
+        return manager;
+    }
+
+    public void setManager(Employee manager) {
+        this.manager = manager;
     }
 
     public List<Contract> getContracts() {
@@ -52,13 +72,4 @@ public class Employee {
     }
 
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", surename='" + surename + '\'' +
-                ", age=" + age +
-                ", contracts=" + contracts +
-                '}';
-    }
 }
