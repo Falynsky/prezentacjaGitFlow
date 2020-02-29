@@ -40,7 +40,19 @@ public class Recruitment {
 
     }
 
-    public void fireAll() throws Exception {
+    public void fire(String whom) {
+        if (whom.equals("ALL")) {
+            try {
+                fireAll();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            System.out.println("Wszystkich albo nikogo!");
+        }
+    }
+
+    private void fireAll() throws Exception {
         if (employees.size() != 0) {
             employees.clear();
             System.out.println("Zwolniono wszystkich pracowników");

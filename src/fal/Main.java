@@ -6,8 +6,8 @@ public class Main {
         Recruitment recruitment = new Recruitment();
 
         recruitment.recruit();
-        recruitment.fireAll();
-        recruitment.fireAll();
+        recruitment.fire("ALL");
+        recruitment.fire("ALL");
         recruitment.recruit();
     }
 
