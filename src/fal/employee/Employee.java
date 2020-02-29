@@ -1,5 +1,8 @@
 package fal.employee;
 
+import fal.contract.Contract;
+
+import java.util.List;
 import java.util.Objects;
 
 public class Employee {
@@ -7,11 +10,21 @@ public class Employee {
     private String name;
     private String surename;
     private int age;
+    private List<Contract> contracts;
 
-    public Employee(String name, String surename, int age) {
+    public Employee(String name, String surename, int age, List<Contract> contracts) {
         this.name = name;
         this.surename = surename;
         this.age = age;
+        this.contracts = contracts;
+    }
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
     }
 
     public String getName() {
@@ -38,15 +51,6 @@ public class Employee {
         this.age = age;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return age == employee.age &&
-                Objects.equals(name, employee.name) &&
-                Objects.equals(surename, employee.surename);
-    }
 
     @Override
     public String toString() {
@@ -54,11 +58,7 @@ public class Employee {
                 "name='" + name + '\'' +
                 ", surename='" + surename + '\'' +
                 ", age=" + age +
+                ", contracts=" + contracts +
                 '}';
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, surename, age);
     }
 }
