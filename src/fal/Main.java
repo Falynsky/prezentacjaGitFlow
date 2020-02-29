@@ -7,7 +7,7 @@ public class Main {
 
         recruitment.recruit();
         recruitment.fire("ALL");
-        recruitment.fire("ALL");
+        recruitment.fire("TED");
         recruitment.recruit();
     }
 
